@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
 
 const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength, containerRef }) => {
@@ -127,41 +127,6 @@ const Expertise = () => {
             strokeDasharray="8 10"
             mask="url(#path-mask)"
             className="drop-shadow-sm"
-          />
-        </svg>
-
-        {/* Mobile Animated Vertical Dashed Line */}
-        <svg
-          className="md:hidden absolute top-0 left-[50%] -translate-x-1/2 w-4 h-[100%] pointer-events-none z-0 text-black dark:text-white"
-          viewBox="0 0 4 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M 2,0 L 2,100"
-            fill="none"
-            className="stroke-slate-300 dark:stroke-white/15"
-            strokeWidth="4"
-            strokeDasharray="4 6"
-            vectorEffect="non-scaling-stroke"
-          />
-          <mask id="path-mask-mobile">
-            <motion.path
-              d="M 2,0 L 2,100"
-              fill="none"
-              stroke="white"
-              strokeWidth="4"
-              style={{ pathLength }}
-              vectorEffect="non-scaling-stroke"
-            />
-          </mask>
-          <path
-            d="M 2,0 L 2,100"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="4"
-            strokeDasharray="4 6"
-            mask="url(#path-mask-mobile)"
-            vectorEffect="non-scaling-stroke"
           />
         </svg>
 
