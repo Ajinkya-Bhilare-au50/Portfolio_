@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../siteConfig';
+import profileImage from '../assets/about/ajinkya-face.jpg';
 
 const NAV_LINKS = ['Home', 'About', 'Expertise', 'Skills', 'Contact'];
 const SERVICES = ['Frontend Development', 'Backend & APIs', 'AI & Machine Learning', 'Cloud & Deployment'];
@@ -52,8 +53,22 @@ const Footer = () => {
         {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 py-16">
           <div className="col-span-2 md:col-span-5">
-            <a href="#home" className="text-2xl font-black tracking-tight">
-              Ajinkya<span className="text-[#ff2a2a]">.</span>
+            <a href="#home" className="group inline-flex items-center gap-4">
+              <img
+                src={profileImage}
+                alt="Ajinkya Bhilare"
+                width={520}
+                height={520}
+                loading="lazy"
+                decoding="async"
+                className="w-14 h-14 rounded-full object-cover ring-2 ring-[#ff2a2a]/70 ring-offset-4 ring-offset-[#0a0a0a] group-hover:ring-[#ff2a2a] transition-all"
+              />
+              <span>
+                <span className="block text-2xl font-black tracking-tight leading-none">
+                  Ajinkya<span className="text-[#ff2a2a]">.</span>
+                </span>
+                <span className="block text-xs font-semibold text-white/50 mt-1.5">Ajinkya Bhilare · Full Stack Developer</span>
+              </span>
             </a>
             <p className="mt-4 text-white/50 text-sm leading-relaxed max-w-sm">
               Full Stack Developer crafting fast, scalable and modern web applications with React, Node.js, AI and the cloud.

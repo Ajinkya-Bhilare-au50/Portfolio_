@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import profileImage from '../assets/about/ajinkya.png';
+import profileImage from '../assets/about/ajinkya-face.jpg';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../siteConfig';
 
 const initialForm = { firstName: '', lastName: '', email: '', phone: '', message: '', permission: false };
@@ -147,11 +147,11 @@ const Contact = () => {
               <img
                 src={profileImage}
                 alt="Ajinkya Bhilare"
-                width={1254}
-                height={1254}
+                width={520}
+                height={520}
                 loading="lazy"
                 decoding="async"
-                className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover object-[center_35%] ring-2 ring-[#ff2a2a]/60"
+                className="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover ring-2 ring-[#ff2a2a]/60"
               />
               <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-400 border-[3px] border-white dark:border-[#0a0a0a]">
                 <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-60" />

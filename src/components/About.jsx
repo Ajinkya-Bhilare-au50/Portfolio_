@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiPython } from 'react-icons/si';
-import profileImage from '../assets/about/ajinkya.png';
+import profileImage from '../assets/about/ajinkya-desk.png';
 import { projects } from '../data/projects';
 
 const CORE_STACK = [
@@ -49,9 +49,9 @@ const About = () => {
                 <img
                   src={profileImage}
                   alt="Ajinkya Bhilare"
-                  width={1254}
-                  height={1254}
-                  className="w-full h-full object-cover object-[center_30%]"
+                  width={1032}
+                  height={982}
+                  className="w-full h-full object-cover object-[60%_center]"
                 />
                 <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-[10px] font-bold text-white tracking-wider uppercase">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
