@@ -49,18 +49,43 @@ const Contact = () => {
     setError('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.permission) {
       setError('Please allow me to contact you at this email address.');
       return;
     }
     setStatus('sending');
-    // Hook up EmailJS / Formspree / your API here
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+
+    // Netlify Forms only exists on the deployed site — simulate success on the local dev server.
+    if (import.meta.env.DEV) {
+      console.info('[dev] Netlify Forms is not available locally. Payload:', formData);
+      setTimeout(() => setStatus('sent'), 700);
+      return;
+    }
+
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'contact',
+        'bot-field': e.target.elements['bot-field']?.value || '',
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        message: formData.message,
+        permission: formData.permission ? 'yes' : 'no',
+      });
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setStatus('sent');
-    }, 900);
+    } catch (err) {
+      console.error('Form submission failed:', err);
+      setStatus('idle');
+      setError(`Something went wrong. Please try again or email me directly at ${CONTACT_EMAIL}.`);
+    }
   };
 
   const resetForm = () => {
@@ -214,6 +239,13 @@ const Contact = () => {
                 className="flex flex-col gap-5"
               >
                 <h3 className="text-black dark:text-white text-2xl font-black tracking-tight mb-2">Send a message</h3>
+
+                {/* Honeypot: hidden from people, bots fill it and Netlify discards the submission */}
+                <p className="hidden" aria-hidden="true">
+                  <label>
+                    Don&apos;t fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </label>
+                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <Field id="firstName" label="First name" value={formData.firstName} onChange={handleChange} />
