@@ -3,14 +3,16 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import profileImage from '../assets/about/ajinkya.png';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../siteConfig';
 
-const initialForm = { firstName: '', lastName: '', email: '', message: '', permission: false };
+const initialForm = { firstName: '', lastName: '', email: '', phone: '', message: '', permission: false };
 
-const Field = ({ id, label, type = 'text', value, onChange, textarea = false }) => {
+const Field = ({ id, label, type = 'text', value, onChange, textarea = false, ...rest }) => {
   const shared = {
     id,
+    name: id,
     value,
     onChange,
     required: true,
+    ...rest,
     placeholder: ' ',
     className:
       'peer w-full rounded-2xl px-5 pt-7 pb-3 text-base resize-none transition-all duration-300 focus:outline-none focus:border-[#ff2a2a] ' +
@@ -71,6 +73,7 @@ const Contact = () => {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
+        phone: formData.phone,
         message: formData.message,
         permission: formData.permission ? 'yes' : 'no',
       });
@@ -251,7 +254,20 @@ const Contact = () => {
                   <Field id="firstName" label="First name" value={formData.firstName} onChange={handleChange} />
                   <Field id="lastName" label="Last name" value={formData.lastName} onChange={handleChange} />
                 </div>
-                <Field id="email" type="email" label="Email address" value={formData.email} onChange={handleChange} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Field id="email" type="email" label="Email address" value={formData.email} onChange={handleChange} autoComplete="email" />
+                  <Field
+                    id="phone"
+                    type="tel"
+                    label="Contact number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    autoComplete="tel"
+                    inputMode="tel"
+                    pattern="\+?[0-9\s\-\(\)]{7,20}"
+                    title="Enter a valid phone number, e.g. +91 98765 43210"
+                  />
+                </div>
                 <Field id="message" label="Your message" value={formData.message} onChange={handleChange} textarea />
 
                 <label htmlFor="permission" className="flex items-start gap-3 text-sm text-black/60 dark:text-white/60 cursor-pointer select-none">
