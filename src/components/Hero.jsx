@@ -3,8 +3,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import heroImage from '../assets/hero/hero.jpg';
 import { projects } from '../data/projects';
+import { TECH_COUNT } from '../data/skills';
 
-const HIGHLIGHTS = [`${projects.length} projects shipped`, '29 technologies', 'Open to work'];
+const HIGHLIGHTS = [`${projects.length} projects shipped`, `${TECH_COUNT} technologies`, 'Open to work'];
 
 const Hero = () => {
   useEffect(() => {

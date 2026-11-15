@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { SiReact, SiNodedotjs, SiExpress, SiMongodb, SiPython } from 'react-icons/si';
 import profileImage from '../assets/about/ajinkya-desk.png';
 import { projects } from '../data/projects';
+import { TECH_COUNT } from '../data/skills';
 
 const CORE_STACK = [
   { name: 'React', icon: SiReact, color: '#149ECA' },
@@ -13,7 +14,7 @@ const CORE_STACK = [
 
 const STATS = [
   { value: String(projects.length), label: 'Projects completed' },
-  { value: '29+', label: 'Technologies' },
+  { value: String(TECH_COUNT), label: 'Technologies' },
   { value: '4', label: 'Expertise areas' },
 ];
 

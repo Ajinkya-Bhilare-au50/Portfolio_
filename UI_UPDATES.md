@@ -147,4 +147,5 @@ The desktop layout uses absolute positioning inside a fixed **1350px** height, s
 | 2026-11-15 | SEO: meta description + Open Graph tags (og:image still TODO); removed `App.css` and ~1.5 MB of unused images | ✅ |
 | 2026-11-15 | Added project #4: Aurelia Fine Jewellery (live link + real screenshot), shown first | ✅ |
 | 2026-11-15 | Hero: replaced the background video with a 1920×1080 still taken from it; removed the mute button; mobile text moved low with a dark fade | ✅ |
+| 2026-11-15 | New Skills Dashboard section (KPI tiles, skills by area, tech usage across projects, proficiency meters); skills data moved to `src/data/skills.js` | ✅ (proficiency values are placeholders) |
 | — | Still open: project screenshots (P1-1), `SectionHeader` component (P1-5), Expertise tablet layout, convert the About photo to WebP, `npm audit fix` | ⏳ |
