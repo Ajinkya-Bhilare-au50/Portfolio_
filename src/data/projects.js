@@ -3,7 +3,24 @@
 //        Leave it null to show the built-in browser-window mockup instead.
 // live / github: set to '' to hide that button.
 
+import aureliaShot from '../assets/projects/aurelia-jewellery.jpg';
+
 export const projects = [
+  {
+    title: 'Aurelia Fine Jewellery',
+    tagline: 'Luxury E-Commerce Storefront',
+    description:
+      'A premium online jewellery boutique with an editorial, magazine-style design. Shoppers browse rings, necklaces, earrings and bracelets, explore curated collections and build their bag, all in a refined light or dark theme.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+    highlights: [
+      'Category browsing, new arrivals and best-seller collections with live pricing and discounts',
+      'Shopping bag, wishlist, account sign-in and order tracking',
+      'Light / dark theme, accessible navigation and an elegant serif-led design system',
+    ],
+    image: aureliaShot,
+    live: 'https://aurelia-jewellery-blush.vercel.app',
+    github: '',
+  },
   {
     title: 'Stack Overflow Website',
     tagline: 'Developer Q&A Platform',
@@ -16,8 +33,8 @@ export const projects = [
       'Secure sign-up and login with JWT authentication',
     ],
     image: null,
-    live: '#',
-    github: '#',
+    live: '',
+    github: '',
   },
   {
     title: 'Twitter Clone',
@@ -31,8 +48,8 @@ export const projects = [
       'User profiles with bio, avatar and tweet history',
     ],
     image: null,
-    live: '#',
-    github: '#',
+    live: '',
+    github: '',
   },
   {
     title: 'E-Commerce Website',
@@ -46,7 +63,7 @@ export const projects = [
       'User accounts with order history',
     ],
     image: null,
-    live: '#',
-    github: '#',
+    live: '',
+    github: '',
   },
 ];

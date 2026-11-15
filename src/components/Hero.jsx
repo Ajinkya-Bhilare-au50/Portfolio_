@@ -1,154 +1,118 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Adjusted import path for the video
-import heroVideo from '../assets/hero video/herovideo.mp4';
+import heroImage from '../assets/hero/hero.jpg';
+import { projects } from '../data/projects';
+
+const HIGHLIGHTS = [`${projects.length} projects shipped`, '29 technologies', 'Open to work'];
 
 const Hero = () => {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
-  // Default to true to allow browser safe autoplay constraints
-  const [isMuted, setIsMuted] = useState(true);
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
-      easing: 'ease-out'
+      easing: 'ease-out',
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     });
   }, []);
 
-  // Switches audio states cleanly without freezing or pausing the video frame timeline
-  const toggleMute = (e) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      const nextMuteState = !videoRef.current.muted;
-      videoRef.current.muted = nextMuteState;
-      setIsMuted(nextMuteState);
-      
-      // Safety check: ensure the video remains playing if it dropped frame execution state
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-    }
-  };
-
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Video - configured to safely launch instantly with autoplay */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted={isMuted}
-        onEnded={() => setIsPlaying(false)}
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src={heroVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <section id="home" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
+      {/* Background image (1920×1080). On narrow screens keep the portrait side in view. */}
+      <img
+        src={heroImage}
+        alt=""
+        width={1920}
+        height={1080}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover object-[72%_center] md:object-center z-0 animate-[hero-zoom_18s_ease-out_forwards] motion-reduce:animate-none"
+      />
 
-      {/* Dark overlay factor for optimized readability without completely muddying up the red tones */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent z-10 pointer-events-none" />
+      {/* Readability overlays: left fade for the text, bottom fade into the page */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/15 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
+      {/* Mobile: darker fade behind the text, which sits low on the screen */}
+      <div className="md:hidden absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent z-10 pointer-events-none" />
 
-      {/* Content Container - UPDATED: Changed items-center to items-start and added responsive top padding (pt-28 / md:pt-[12%]) to lift content below the navbar */}
-      <div className="absolute inset-0 z-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-start text-left w-full h-full pt-28 md:pt-[12%]">
-        
-        {/* Left Side: Text and Buttons - Shifted higher up */}
-        <div className="flex flex-col items-start text-left max-w-lg lg:max-w-xl w-full">
-          
-          {/* Main Heading */}
-          <h1 
+      <div className="absolute inset-0 z-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start text-left w-full h-full pb-16 md:pb-0 md:pt-[12%]">
+        <div className="flex flex-col items-start text-left max-w-lg lg:max-w-2xl w-full">
+          <p
+            data-aos="fade-up"
+            className="inline-flex items-center gap-3 text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-white/80 mb-5"
+          >
+            <span className="w-8 h-[2px] bg-brand" />
+            Hi, I&apos;m
+          </p>
+
+          <h1
             data-aos="fade-up"
             data-aos-delay="50"
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-black mb-5 tracking-tight leading-[1.05]"
+            className="font-display text-white text-5xl sm:text-6xl md:text-7xl font-bold mb-4 tracking-tight leading-[0.95]"
           >
-            Hi, I’m a <br /> 
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
-              Full Stack Developer
-            </span>
+            Ajinkya Bhilare<span className="text-brand">.</span>
           </h1>
 
-          {/* Subheading */}
-          <p 
+          <p
             data-aos="fade-up"
-            data-aos-delay="200"
-            className="text-white/90 text-sm md:text-base lg:text-lg font-medium mb-8 max-w-sm md:max-w-md leading-relaxed drop-shadow-sm"
+            data-aos-delay="150"
+            className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-brand"
+          >
+            Full Stack &amp; AI Developer
+          </p>
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="250"
+            className="text-white/85 text-sm md:text-base lg:text-lg font-medium mb-8 max-w-sm md:max-w-md leading-relaxed"
           >
             I build fast, scalable and modern web applications using React, Node.js and Tailwind CSS.
           </p>
 
-          {/* Buttons */}
-          <div 
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="flex flex-row items-center gap-4 w-full"
-          >
-            {/* Primary Button */}
-            <a 
-              href="#projects" 
-              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-white text-black font-bold hover:bg-neutral-100 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg inline-block text-center"
+          <div data-aos="fade-up" data-aos-delay="350" className="flex flex-row items-center gap-4 w-full">
+            <a
+              href="#projects"
+              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-white text-black font-bold hover:bg-brand hover:text-white transition-all duration-300 hover:-translate-y-0.5 shadow-lg inline-block text-center"
             >
               View My Work
             </a>
-            
-            {/* Secondary Button */}
-            <a 
-              href="#contact" 
-              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-black/10 border border-white text-white font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-md transform hover:-translate-y-0.5 inline-block text-center"
+            <a
+              href="#contact"
+              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-black/10 border border-white text-white font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-md hover:-translate-y-0.5 inline-block text-center"
             >
               Contact Me
             </a>
           </div>
-        </div>
 
-        {/* Right Side: Mute/Unmute Dynamic Audio Controller - Aligned to items-start for clean tracking */}
-        <div 
-          data-aos="zoom-in"
-          data-aos-delay="600"
-          className="mt-12 md:mt-2 flex flex-col items-center justify-center gap-2 cursor-pointer group self-start md:self-auto"
-          onClick={toggleMute}
-        >
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex justify-center items-center group-hover:scale-105 group-hover:bg-white group-hover:border-white transition-all duration-300 shadow-xl">
-            {isMuted ? (
-              // Speaker Muted Icon
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-black transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6L4.5 9H1.5v6h3l4.5 3.75V5.25z" />
-              </svg>
-            ) : (
-              // Speaker Audio Active Waves Icon
-              <svg className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-black transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28-.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
-              </svg>
-            )}
-          </div>
-          <span className="text-white text-[9px] md:text-[11px] font-extrabold tracking-widest uppercase opacity-60 group-hover:opacity-100 transition-opacity mt-1">
-            {isMuted ? "Unmute Reel" : "Mute Sound"}
-          </span>
+          <ul
+            data-aos="fade-up"
+            data-aos-delay="450"
+            className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs md:text-sm font-semibold text-white/70"
+          >
+            {HIGHLIGHTS.map((h, i) => (
+              <li key={h} className="flex items-center gap-2">
+                <span className={`w-1.5 h-1.5 rounded-full ${i === HIGHLIGHTS.length - 1 ? 'bg-emerald-400 animate-pulse' : 'bg-brand'}`} />
+                {h}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div 
+      {/* Scroll indicator */}
+      <a
+        href="#about"
+        aria-label="Scroll to About section"
         data-aos="fade-up"
         data-aos-delay="800"
-        className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none"
+        className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="animate-bounce">
-          <svg 
-            className="w-5 h-5 text-white opacity-70" 
-            fill="none" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth="2.5" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        <span className="block animate-bounce motion-reduce:animate-none">
+          <svg className="w-5 h-5 text-white opacity-70" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </div>
-      </div>
+        </span>
+      </a>
     </section>
   );
 };

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import { CONTACT_EMAIL, SOCIAL_LINKS } from '../siteConfig';
+import { CONTACT_EMAIL, SOCIAL_LINKS, NAV_LINKS } from '../siteConfig';
 import profileImage from '../assets/about/ajinkya-face.jpg';
 
-const NAV_LINKS = ['Home', 'About', 'Expertise', 'Skills', 'Contact'];
 const SERVICES = ['Frontend Development', 'Backend & APIs', 'AI & Machine Learning', 'Cloud & Deployment'];
 
 const ArrowIcon = ({ className = '' }) => (
@@ -18,7 +17,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#0a0a0a] text-white w-full overflow-hidden border-t border-white/10">
       {/* Red glow */}
-      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#ff2a2a]/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-brand/15 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28">
         {/* CTA row */}
@@ -30,7 +29,7 @@ const Footer = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-10 pb-16 md:pb-20 border-b border-white/10"
         >
           <div>
-            <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#ff2a2a] mb-5 flex items-center gap-3">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-brand mb-5 flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Open to new opportunities
             </p>
@@ -42,7 +41,7 @@ const Footer = () => {
 
           <a
             href="#contact"
-            className="group relative shrink-0 w-36 h-36 md:w-44 md:h-44 rounded-full bg-[#ff2a2a] flex flex-col items-center justify-center gap-1
+            className="group relative shrink-0 w-36 h-36 md:w-44 md:h-44 rounded-full bg-brand flex flex-col items-center justify-center gap-1
                        font-black text-sm md:text-base hover:scale-105 hover:shadow-[0_0_60px_rgba(255,42,42,0.45)] transition-all duration-500 self-start md:self-auto"
           >
             Let&apos;s Talk
@@ -61,11 +60,11 @@ const Footer = () => {
                 height={520}
                 loading="lazy"
                 decoding="async"
-                className="w-14 h-14 rounded-full object-cover ring-2 ring-[#ff2a2a]/70 ring-offset-4 ring-offset-[#0a0a0a] group-hover:ring-[#ff2a2a] transition-all"
+                className="w-14 h-14 rounded-full object-cover ring-2 ring-brand/70 ring-offset-4 ring-offset-[#0a0a0a] group-hover:ring-brand transition-all"
               />
               <span>
                 <span className="block text-2xl font-black tracking-tight leading-none">
-                  Ajinkya<span className="text-[#ff2a2a]">.</span>
+                  Ajinkya<span className="text-brand">.</span>
                 </span>
                 <span className="block text-xs font-semibold text-white/50 mt-1.5">Ajinkya Bhilare · Full Stack Developer</span>
               </span>
@@ -75,7 +74,7 @@ const Footer = () => {
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="group mt-6 inline-flex items-center gap-2 text-base font-bold border-b border-white/20 pb-1 hover:border-[#ff2a2a] hover:text-[#ff2a2a] transition-colors"
+              className="group mt-6 inline-flex items-center gap-2 text-base font-bold border-b border-white/20 pb-1 hover:border-brand hover:text-brand transition-colors"
             >
               {CONTACT_EMAIL}
               <ArrowIcon className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -138,7 +137,7 @@ const Footer = () => {
           className="text-[21vw] leading-[0.8] font-black tracking-tighter text-center uppercase
                      bg-gradient-to-b from-white/90 via-white/25 to-transparent bg-clip-text text-transparent"
         >
-          Ajinkya<span className="text-[#ff2a2a]">.</span>
+          Ajinkya<span className="text-brand">.</span>
         </motion.h2>
       </div>
 
@@ -152,7 +151,7 @@ const Footer = () => {
             className="group flex items-center gap-2 text-white/60 hover:text-white transition-colors font-bold uppercase tracking-widest"
           >
             Back to top
-            <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-[#ff2a2a] group-hover:border-[#ff2a2a] transition-all">
+            <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-brand group-hover:border-brand transition-all">
               <svg className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0l-7 7m7-7l7 7" />
               </svg>

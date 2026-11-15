@@ -15,7 +15,7 @@ const GithubIcon = ({ className = '' }) => (
 
 // Shown when a project has no screenshot yet: a styled browser window.
 const Mockup = ({ title, index }) => (
-  <div className="w-full h-full flex flex-col bg-gradient-to-br from-[#ff2a2a] via-[#c41616] to-[#1a0505]">
+  <div className="w-full h-full flex flex-col bg-gradient-to-br from-brand via-[#c41616] to-[#1a0505]">
     <div className="flex items-center gap-1.5 px-4 py-3 bg-black/25">
       <span className="w-2.5 h-2.5 rounded-full bg-white/50" />
       <span className="w-2.5 h-2.5 rounded-full bg-white/35" />
@@ -68,7 +68,7 @@ const ProjectCard = ({ project, index }) => {
         </div>
         {/* Floating number badge */}
         <span
-          className={`absolute -top-5 ${flip ? '-right-3 lg:-right-5' : '-left-3 lg:-left-5'} w-14 h-14 rounded-2xl bg-[#ff2a2a] text-white
+          className={`absolute -top-5 ${flip ? '-right-3 lg:-right-5' : '-left-3 lg:-left-5'} w-14 h-14 rounded-2xl bg-brand text-white
                       font-black text-lg flex items-center justify-center shadow-[0_10px_30px_rgba(255,42,42,0.45)] rotate-[-6deg]
                       group-hover:rotate-0 transition-transform duration-500`}
         >
@@ -78,7 +78,7 @@ const ProjectCard = ({ project, index }) => {
 
       {/* Content */}
       <div className={flip ? 'lg:order-1' : ''}>
-        <p className="text-xs font-bold tracking-[0.25em] uppercase text-[#ff2a2a] mb-3">{project.tagline}</p>
+        <p className="text-xs font-bold tracking-[0.25em] uppercase text-brand mb-3">{project.tagline}</p>
         <h3 className="text-3xl md:text-4xl font-black tracking-tight text-black dark:text-white mb-5">{project.title}</h3>
         <p className="text-black/60 dark:text-white/60 text-base md:text-lg leading-relaxed mb-6">{project.description}</p>
 
@@ -86,7 +86,7 @@ const ProjectCard = ({ project, index }) => {
           <ul className="flex flex-col gap-2.5 mb-7">
             {project.highlights.map((h) => (
               <li key={h} className="flex items-start gap-3 text-sm font-semibold text-black/75 dark:text-white/75">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#ff2a2a] shrink-0" />
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
                 {h}
               </li>
             ))}
@@ -111,7 +111,7 @@ const ProjectCard = ({ project, index }) => {
               href={project.live}
               target="_blank"
               rel="noreferrer"
-              className="group/btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#ff2a2a] text-white text-sm font-black
+              className="group/btn inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand text-white text-sm font-black
                          hover:shadow-[0_12px_30px_rgba(255,42,42,0.4)] hover:-translate-y-0.5 transition-all duration-300"
             >
               Live Demo
@@ -139,7 +139,7 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => (
   <section id="projects" className="relative w-full bg-white dark:bg-[#0a0a0a] py-24 md:py-32 px-6 md:px-12 overflow-hidden">
-    <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-[#ff2a2a]/5 dark:bg-[#ff2a2a]/10 rounded-full blur-[140px] pointer-events-none" />
+    <div className="absolute top-1/3 -left-40 w-[500px] h-[500px] bg-brand/5 dark:bg-brand/10 rounded-full blur-[140px] pointer-events-none" />
 
     <div className="relative z-10 max-w-6xl mx-auto">
       {/* Header */}
@@ -151,12 +151,12 @@ const Projects = () => (
         className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20 md:mb-24"
       >
         <div>
-          <span className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-[#ff2a2a] mb-5">
-            <span className="w-8 h-[2px] bg-[#ff2a2a]" />
+          <span className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-brand mb-5">
+            <span className="w-8 h-[2px] bg-brand" />
             Selected Work
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-black dark:text-white tracking-tight leading-[1.05]">
-            Featured Projects<span className="text-[#ff2a2a]">.</span>
+            Featured Projects<span className="text-brand">.</span>
           </h2>
         </div>
         <p className="text-black/55 dark:text-white/50 text-base md:text-lg max-w-sm leading-relaxed">

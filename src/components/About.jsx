@@ -27,7 +27,7 @@ const Star = ({ className, style }) => (
 
 const About = () => {
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-24 pb-40 md:pb-48 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section id="about" className="bg-brand pt-24 pb-40 md:pb-48 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       {/* Subtle dot texture */}
       <div className="absolute inset-0 opacity-[0.12] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:22px_22px]" />
 
@@ -63,7 +63,7 @@ const About = () => {
               <div className="px-2 pt-4 flex items-end justify-between gap-3">
                 <div>
                   <p className="text-white font-black text-lg leading-tight tracking-tight">Ajinkya Bhilare</p>
-                  <p className="text-[#ff2a2a] text-xs font-bold uppercase tracking-[0.15em] mt-1">Full Stack Developer</p>
+                  <p className="text-brand text-xs font-bold uppercase tracking-[0.15em] mt-1">Full Stack Developer</p>
                 </div>
                 {/* Faux barcode */}
                 <div className="flex items-end gap-[2px] h-8 opacity-70 shrink-0" aria-hidden="true">
@@ -94,11 +94,11 @@ const About = () => {
             <span className="text-white">Ajinkya.</span>
           </h2>
 
-          <p className="text-lg md:text-xl font-semibold text-white leading-relaxed max-w-2xl mb-4">
-            A passionate <span className="text-black font-black">full-stack developer</span> dedicated to crafting clean,
+          <p className="text-lg md:text-xl font-semibold text-black leading-relaxed max-w-2xl mb-4">
+            A passionate <span className="text-white font-black">full-stack developer</span> dedicated to crafting clean,
             functional, and highly scalable web applications.
           </p>
-          <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-2xl mb-10">
+          <p className="text-base md:text-lg text-black/75 leading-relaxed max-w-2xl mb-10">
             I enjoy turning ideas into products — from pixel-perfect React interfaces to secure APIs, databases, and
             AI-powered features — and shipping them to the cloud.
           </p>
@@ -108,7 +108,7 @@ const About = () => {
             {STATS.map((s, i) => (
               <div key={s.label} className={`py-5 ${i > 0 ? 'pl-5 border-l border-black/15' : ''}`}>
                 <p className="text-4xl md:text-5xl font-black text-black leading-none">{s.value}</p>
-                <p className="text-xs md:text-sm font-bold text-white/85 mt-2">{s.label}</p>
+                <p className="text-xs md:text-sm font-bold text-black/70 mt-2">{s.label}</p>
               </div>
             ))}
           </div>

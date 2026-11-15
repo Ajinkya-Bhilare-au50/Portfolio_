@@ -30,7 +30,7 @@ const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength
       ref={ref}
       data-aos={aosType || "fade-up"}
       data-aos-delay={aosDelay}
-      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${isActive ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] dark:bg-[#141414] dark:border-white/10 dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)]'
+      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${isActive ? 'bg-brand border border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] dark:bg-[#141414] dark:border-white/10 dark:shadow-[0_15px_40px_rgba(0,0,0,0.5)]'
         }`}
     >
       {/* The hole punch */}
@@ -83,7 +83,6 @@ const Expertise = () => {
             Building Modern Digital Solutions with Code & AI
             {/* Hand-drawn arrow */}
             <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800 dark:text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
               <path d="M4 4 Q 10 10 15 15 M 15 15 L 10 15 M 15 15 L 15 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </h2>
@@ -179,7 +178,7 @@ const Expertise = () => {
           <div
             data-aos="fade-in"
             data-aos-delay="600"
-            className="hidden md:block absolute top-[1250px] left-[60%] font-['Caveat',cursive] text-3xl text-gray-600 dark:text-white/60 rotate-6"
+            className="hidden md:block absolute top-[1250px] left-[60%] font-hand text-3xl text-gray-600 dark:text-white/60 rotate-6"
           >
             Turning ideas into reality!
           </div>

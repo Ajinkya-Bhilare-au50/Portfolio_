@@ -1,18 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const SEEN_KEY = 'preloader-seen';
+
+// Show the intro once per browser session, and never for reduced-motion users.
+const shouldShow = () => {
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    return !sessionStorage.getItem(SEEN_KEY);
+  } catch {
+    return true;
+  }
+};
+
 const Preloader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(shouldShow);
 
   useEffect(() => {
-    // Wait for the water fill animation (1.5s) + a small pause (0.5s)
-    // before the shutter goes up smoothly.
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2200);
-    
+    if (!isLoading) return;
+    try {
+      sessionStorage.setItem(SEEN_KEY, '1');
+    } catch {
+      /* storage unavailable — intro just shows again next visit */
+    }
+    const timer = setTimeout(() => setIsLoading(false), 1200);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoading]);
 
   return (
     <AnimatePresence>
@@ -20,32 +33,29 @@ const Preloader = () => {
         <motion.div
           key="preloader"
           initial={{ y: 0 }}
-          exit={{ y: "-100%" }}
-          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 w-full h-screen bg-[#ff2a2a] z-[100000] flex items-center justify-center"
+          exit={{ y: '-100%' }}
+          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 w-full h-screen bg-brand z-[100000] flex items-center justify-center"
+          aria-hidden="true"
         >
-          {/* Logo Container */}
-          <motion.div 
+          <motion.div
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative text-5xl md:text-7xl font-black tracking-tighter"
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="relative font-display text-5xl md:text-7xl font-bold tracking-tighter"
           >
-            {/* Background text (empty state) */}
-            <div className="text-red-900/30">
-              Ajinkya<span className="text-red-900/30">.</span>
-            </div>
+            {/* Empty state */}
+            <div className="text-red-900/30">Ajinkya.</div>
 
-            {/* Foreground text (water fill state) */}
-            <motion.div 
+            {/* Fill state */}
+            <motion.div
               className="absolute top-0 left-0 text-white overflow-hidden whitespace-nowrap"
               initial={{ clipPath: 'inset(100% 0 0 0)' }}
               animate={{ clipPath: 'inset(0% 0 0 0)' }}
-              transition={{ duration: 1.6, ease: "easeInOut", delay: 0.2 }}
+              transition={{ duration: 0.9, ease: 'easeInOut', delay: 0.1 }}
             >
               Ajinkya<span className="text-black">.</span>
             </motion.div>
           </motion.div>
-
         </motion.div>
       )}
     </AnimatePresence>

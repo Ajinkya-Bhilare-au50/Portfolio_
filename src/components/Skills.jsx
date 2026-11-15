@@ -113,14 +113,14 @@ const CategoryCard = ({ category, icon: CategoryIcon, skills, index }) => (
     viewport={{ once: true, margin: '-60px' }}
     transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
     className="group relative rounded-3xl p-6 overflow-hidden transition-all duration-500 hover:-translate-y-1.5
-               bg-white border border-black/10 shadow-sm hover:border-[#ff2a2a]/60 hover:shadow-[0_20px_50px_rgba(255,42,42,0.12)]
-               dark:bg-white/[0.03] dark:border-white/10 dark:shadow-none dark:hover:border-[#ff2a2a]/60 dark:hover:shadow-[0_20px_50px_rgba(255,42,42,0.15)]"
+               bg-white border border-black/10 shadow-sm hover:border-brand/60 hover:shadow-[0_20px_50px_rgba(255,42,42,0.12)]
+               dark:bg-white/[0.03] dark:border-white/10 dark:shadow-none dark:hover:border-brand/60 dark:hover:shadow-[0_20px_50px_rgba(255,42,42,0.15)]"
   >
     {/* Red top accent that grows on hover */}
-    <div className="absolute top-0 left-0 h-[3px] w-12 bg-[#ff2a2a] group-hover:w-full transition-all duration-700" />
+    <div className="absolute top-0 left-0 h-[3px] w-12 bg-brand group-hover:w-full transition-all duration-700" />
 
     <div className="flex items-center justify-between mb-6">
-      <span className="w-11 h-11 rounded-xl bg-[#ff2a2a] text-white flex items-center justify-center shadow-[0_8px_20px_rgba(255,42,42,0.35)]">
+      <span className="w-11 h-11 rounded-xl bg-brand text-white flex items-center justify-center shadow-[0_8px_20px_rgba(255,42,42,0.35)]">
         <CategoryIcon className="w-6 h-6" />
       </span>
       <span className="text-5xl font-black text-black/[0.06] dark:text-white/[0.06] leading-none select-none">
@@ -147,8 +147,8 @@ const CategoryCard = ({ category, icon: CategoryIcon, skills, index }) => (
 const Skills = () => (
   <section id="skills" className="relative w-full bg-[#f7f7f7] dark:bg-black py-24 md:py-32 overflow-hidden">
     {/* Red glow accents */}
-    <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-[#ff2a2a]/10 dark:bg-[#ff2a2a]/15 rounded-full blur-[140px] pointer-events-none" />
-    <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-[#ff2a2a]/5 dark:bg-[#ff2a2a]/10 rounded-full blur-[120px] pointer-events-none" />
+    <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-brand/10 dark:bg-brand/15 rounded-full blur-[140px] pointer-events-none" />
+    <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand/5 dark:bg-brand/10 rounded-full blur-[120px] pointer-events-none" />
 
     {/* Header */}
     <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mb-14 md:mb-16">
@@ -160,13 +160,13 @@ const Skills = () => (
         className="flex flex-col md:flex-row md:items-end justify-between gap-6"
       >
         <div>
-          <span className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-[#ff2a2a] mb-5">
-            <span className="w-8 h-[2px] bg-[#ff2a2a]" />
+          <span className="inline-flex items-center gap-3 text-xs font-bold tracking-[0.25em] uppercase text-brand mb-5">
+            <span className="w-8 h-[2px] bg-brand" />
             Technical Stack
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-black dark:text-white tracking-tight leading-[1.05]">
             Technologies I <br className="hidden sm:block" />
-            Work With<span className="text-[#ff2a2a]">.</span>
+            Work With<span className="text-brand">.</span>
           </h2>
         </div>
         <p className="text-black/55 dark:text-white/50 text-base md:text-lg max-w-sm leading-relaxed">
