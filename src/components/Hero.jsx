@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import heroImage from '../assets/hero/hero.jpg';
 import { projects } from '../data/projects';
 import { TECH_COUNT } from '../data/skills';
 
@@ -21,7 +20,7 @@ const Hero = () => {
     <section id="home" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
       {/* Background image (1920×1080). On narrow screens keep the portrait side in view. */}
       <img
-        src={heroImage}
+        src="/hero.webp"
         alt=""
         width={1920}
         height={1080}

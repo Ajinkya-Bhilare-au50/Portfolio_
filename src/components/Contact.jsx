@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import profileImage from '../assets/about/ajinkya-face.jpg';
+import profileImage from '../assets/about/ajinkya-face.webp';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../siteConfig';
 
 const initialForm = { firstName: '', lastName: '', email: '', phone: '', message: '', permission: false };

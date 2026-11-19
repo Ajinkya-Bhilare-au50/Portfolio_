@@ -3,7 +3,9 @@
 //        Leave it null to show the built-in browser-window mockup instead.
 // live / github: set to '' to hide that button.
 
-import aureliaShot from '../assets/projects/aurelia-jewellery.jpg';
+import aureliaShot from '../assets/projects/aurelia-jewellery.webp';
+import connectlyShot from '../assets/projects/connectly.webp';
+import medikartShot from '../assets/projects/medikart.webp';
 
 export const projects = [
   {
@@ -37,18 +39,35 @@ export const projects = [
     github: '',
   },
   {
-    title: 'Twitter Clone',
-    tagline: 'Social Media App',
+    title: 'Connectly',
+    tagline: 'Social Media Platform',
     description:
-      'A social media application modelled on Twitter, where users share short posts, follow each other, and interact through a personalised feed.',
-    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+      'A modern social networking platform built to bring people closer through meaningful digital connections. Users sign up, share posts and photos, follow each other and join conversations through hashtags, all in a clean, responsive light or dark interface.',
+    tech: ['Next.js', 'React', 'MongoDB', 'Tailwind CSS', 'Vercel'],
     highlights: [
-      'Post tweets, like, retweet and reply',
-      'Follow / unfollow users with a personalised home feed',
-      'User profiles with bio, avatar and tweet history',
+      'Secure user authentication with sign-up, login and personal profiles',
+      'Interactive home feed: post text and images, then like, repost, comment, bookmark and share',
+      'Follow suggestions, hashtag explore page, trending topics and search',
+      'Responsive, mobile-friendly design with smooth light / dark mode',
     ],
-    image: null,
-    live: '',
+    image: connectlyShot,
+    live: 'https://connectly-ecru-one.vercel.app',
+    github: '',
+  },
+  {
+    title: 'MediKart+',
+    tagline: 'Online Pharmacy Platform',
+    description:
+      'A full-featured online pharmacy where customers search and order genuine medicines, upload prescriptions for pharmacist verification and book diagnostic tests with home sample collection, all in a clean, trustworthy healthcare interface.',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'Render'],
+    highlights: [
+      'Medicine search, category browsing and bestseller collections with MRP, discounts and Rx tags',
+      'Prescription upload flow with pharmacist verification for prescription-only medicines',
+      'Cart, one-click reorder and order tracking with delivery-location selection',
+      'Health test booking with home sample collection and online reports',
+    ],
+    image: medikartShot,
+    live: 'https://medikart-t0dg.onrender.com',
     github: '',
   },
   {

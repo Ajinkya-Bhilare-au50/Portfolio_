@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS, NAV_LINKS } from '../siteConfig';
-import profileImage from '../assets/about/ajinkya-face.jpg';
+import profileImage from '../assets/about/ajinkya-face.webp';
 
 const SERVICES = ['Frontend Development', 'Backend & APIs', 'AI & Machine Learning', 'Cloud & Deployment'];
 

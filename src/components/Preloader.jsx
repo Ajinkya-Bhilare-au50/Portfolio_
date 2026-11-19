@@ -23,7 +23,7 @@ const Preloader = () => {
     } catch {
       /* storage unavailable — intro just shows again next visit */
     }
-    const timer = setTimeout(() => setIsLoading(false), 1200);
+    const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, [isLoading]);
 
@@ -34,13 +34,13 @@ const Preloader = () => {
           key="preloader"
           initial={{ y: 0 }}
           exit={{ y: '-100%' }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 w-full h-screen bg-brand z-[100000] flex items-center justify-center"
           aria-hidden="true"
         >
           <motion.div
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             className="relative font-display text-5xl md:text-7xl font-bold tracking-tighter"
           >
             {/* Empty state */}
@@ -51,7 +51,7 @@ const Preloader = () => {
               className="absolute top-0 left-0 text-white overflow-hidden whitespace-nowrap"
               initial={{ clipPath: 'inset(100% 0 0 0)' }}
               animate={{ clipPath: 'inset(0% 0 0 0)' }}
-              transition={{ duration: 0.9, ease: 'easeInOut', delay: 0.1 }}
+              transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.05 }}
             >
               Ajinkya<span className="text-black">.</span>
             </motion.div>
