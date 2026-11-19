@@ -106,6 +106,7 @@ const Footer = () => {
             </ul>
           </div>
 
+          {SOCIAL_LINKS.length > 0 && (
           <div className="md:col-span-2">
             <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-white/40 mb-5">Socials</h4>
             <ul className="flex flex-col gap-3">
@@ -124,6 +125,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
+          )}
         </div>
       </div>
 

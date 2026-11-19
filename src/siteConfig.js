@@ -7,7 +7,7 @@ export const NAV_LINKS = ['Home', 'About', 'Expertise', 'Skills', 'Dashboard', '
 // Links with an empty href are hidden. Add your LinkedIn URL to show it.
 const ALL_SOCIAL_LINKS = [
   { label: 'LinkedIn', href: '' },
-  { label: 'GitHub', href: 'https://github.com/Ajinkya-Bhilare-au50' },
+  { label: 'GitHub', href: '' },
 ];
 
 export const SOCIAL_LINKS = ALL_SOCIAL_LINKS.filter((s) => s.href);

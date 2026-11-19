@@ -178,6 +178,7 @@ const Contact = () => {
               </span>
               <span className="font-semibold">{CONTACT_EMAIL}</span>
             </a>
+            {SOCIAL_LINKS.length > 0 && (
             <div className="flex gap-3 mt-2">
               {SOCIAL_LINKS.map((s) => (
                 <a
@@ -193,6 +194,7 @@ const Contact = () => {
                 </a>
               ))}
             </div>
+            )}
           </div>
         </motion.div>
 
